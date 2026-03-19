@@ -145,10 +145,15 @@ function CheckRow({
           <YStack pl="$6.5" gap="$1">
             {check.signals.map((signal) => (
               <YStack key={signal.key}>
-                <XStack gap="$1.5" alignItems="flex-start">
-                  <SizableText size="$bodySm" color="$textSubdued" mt="$0.5">
-                    ·
-                  </SizableText>
+                <XStack gap="$2" alignItems="flex-start">
+                  <Stack
+                    width="$1"
+                    height="$1"
+                    borderRadius="$full"
+                    bg="$textSubdued"
+                    mt="$1.5"
+                    flexShrink={0}
+                  />
                   <YStack flex={1}>
                     <SizableText size="$bodySm" color="$textSubdued">
                       {signal.title}
@@ -169,10 +174,15 @@ function CheckRow({
             {check.signals.some((s) => s.title.length > 30) ? (
               /* Sentence signals — bullet list */
               check.signals.map((signal) => (
-                <XStack key={signal.key} gap="$1.5" alignItems="flex-start">
-                  <SizableText size="$bodySm" color="$textSubdued" mt="$0.5">
-                    ·
-                  </SizableText>
+                <XStack key={signal.key} gap="$2" alignItems="flex-start">
+                  <Stack
+                    width="$1"
+                    height="$1"
+                    borderRadius="$full"
+                    bg="$textSubdued"
+                    mt="$1.5"
+                    flexShrink={0}
+                  />
                   <SizableText size="$bodySm" color="$textSubdued" flex={1}>
                     {signal.title}
                   </SizableText>
