@@ -13,10 +13,33 @@ const fs = require('fs');
 const https = require('https');
 const path = require('path');
 
-const LOCALE_JSON_PATH = path.join(
+const LOCALE_JSON_DIR = path.join(
   __dirname,
-  '../../../packages/shared/src/locale/json/en_US.json',
+  '../../../packages/shared/src/locale/json',
 );
+const LOCALE_JSON_PATH = path.join(LOCALE_JSON_DIR, 'en_US.json');
+
+// Languages auto-translated immediately by yarn i18n:add.
+// EN and ZH are filled by the caller; the rest piggyback on Lokalise's
+// automatic_translation task type so reviewers see real translations
+// instead of English fallbacks.
+const AUTO_TRANSLATE_SKIP = new Set(['en_US', 'zh_CN']);
+
+function listAutoTranslateTargets() {
+  // Discover locale ISOs from the locale json directory, excluding en/zh which
+  // we already provide. Falls back to a static list if the directory is empty.
+  try {
+    const files = fs.readdirSync(LOCALE_JSON_DIR);
+    const isos = files
+      .filter((f) => f.endsWith('.json'))
+      .map((f) => f.replace(/\.json$/, ''))
+      .filter((iso) => !AUTO_TRANSLATE_SKIP.has(iso));
+    if (isos.length) return isos;
+  } catch {
+    // ignore — fall through
+  }
+  return [];
+}
 
 // 4 semantic type suffixes for new translation keys (format: semantic_key__type)
 const TYPE_SUFFIXES = {
@@ -163,57 +186,32 @@ function validateKey(key) {
   }
 }
 
-function addToLokalise(key, enValue, zhValue) {
+function lokaliseRequest({ method, projectPath, body }) {
   return new Promise((resolve, reject) => {
     const token = getEnvVar('LOKALISE_TOKEN');
     const projectId = getEnvVar('LOKALISE_PROJECT_ID');
-
-    const translations = [
-      {
-        language_iso: 'en_US',
-        translation: enValue,
-      },
-    ];
-
-    if (zhValue) {
-      translations.push({
-        language_iso: 'zh_CN',
-        translation: zhValue,
-      });
-    }
-
-    const data = JSON.stringify({
-      keys: [
-        {
-          key_name: key,
-          platforms: ['web'],
-          translations,
-        },
-      ],
-    });
-
+    const data = body ? JSON.stringify(body) : '';
     const options = {
       hostname: 'api.lokalise.com',
       port: 443,
-      path: `/api2/projects/${projectId}/keys`,
-      method: 'POST',
+      path: `/api2/projects/${projectId}${projectPath}`,
+      method,
       headers: {
         'Content-Type': 'application/json',
         'X-Api-Token': token,
-        'Content-Length': Buffer.byteLength(data),
+        ...(data ? { 'Content-Length': Buffer.byteLength(data) } : {}),
       },
     };
-
     const req = https.request(options, (res) => {
-      let body = '';
-      res.on('data', (chunk) => (body += chunk));
+      let raw = '';
+      res.on('data', (chunk) => (raw += chunk));
       res.on('end', () => {
         try {
-          if (res.statusCode === 200 || res.statusCode === 201) {
-            resolve(JSON.parse(body));
+          if (res.statusCode >= 200 && res.statusCode < 300) {
+            resolve(raw ? JSON.parse(raw) : {});
           } else {
             reject(
-              new Error(`Lokalise API error: ${res.statusCode} - ${body}`),
+              new Error(`Lokalise API error: ${res.statusCode} - ${raw}`),
             );
           }
         } catch (e) {
@@ -221,11 +219,68 @@ function addToLokalise(key, enValue, zhValue) {
         }
       });
     });
-
     req.on('error', reject);
-    req.write(data);
+    if (data) req.write(data);
     req.end();
   });
+}
+
+async function addToLokalise(key, enValue, zhValue) {
+  const translations = [{ language_iso: 'en_US', translation: enValue }];
+  if (zhValue) {
+    translations.push({ language_iso: 'zh_CN', translation: zhValue });
+  }
+  const response = await lokaliseRequest({
+    method: 'POST',
+    projectPath: '/keys',
+    body: {
+      keys: [
+        {
+          key_name: key,
+          platforms: ['web'],
+          translations,
+        },
+      ],
+    },
+  });
+  const created = Array.isArray(response.keys) ? response.keys[0] : undefined;
+  if (!created || typeof created.key_id !== 'number') {
+    throw new Error(
+      `Lokalise response missing key_id: ${JSON.stringify(response).slice(0, 300)}`,
+    );
+  }
+  return created.key_id;
+}
+
+async function triggerAutoTranslate(key, keyId) {
+  const targets = listAutoTranslateTargets();
+  if (!targets.length) {
+    console.log(
+      '  Skipped MT: no other locale JSON files found under locale/json',
+    );
+    return;
+  }
+  try {
+    await lokaliseRequest({
+      method: 'POST',
+      projectPath: '/tasks',
+      body: {
+        title: `Auto-translate ${key}`,
+        task_type: 'automatic_translation',
+        keys: [keyId],
+        languages: targets.map((iso) => ({ language_iso: iso })),
+        save_ai_translation_to_tm: false,
+        mark_verified: false,
+      },
+    });
+    console.log(`  Auto-translate task queued for ${targets.length} locales`);
+  } catch (error) {
+    // Non-fatal: key creation already succeeded. Surface the issue so the
+    // caller knows MT didn't fire and can backfill via the UI / re-run later.
+    console.warn(
+      `  Auto-translate task failed (non-fatal): ${error.message || error}`,
+    );
+  }
 }
 
 async function main() {
@@ -276,11 +331,17 @@ async function main() {
   // Add to Lokalise
   try {
     console.log('Adding to Lokalise...');
-    await addToLokalise(key, enValue, zhValue);
-    console.log('Added to Lokalise');
+    const keyId = await addToLokalise(key, enValue, zhValue);
+    console.log(`Added to Lokalise (key_id=${keyId})`);
+
+    // Queue MT for the remaining locales so reviewers don't see English fallbacks.
+    await triggerAutoTranslate(key, keyId);
+
     console.log('');
     console.log('Next steps:');
-    console.log('  1. Run: yarn i18n:pull');
+    console.log(
+      '  1. Wait ~30s for Lokalise auto-translate task to finish, then run: yarn i18n:pull',
+    );
     console.log(`  2. Use in code: ETranslations.${key.replace(/\./g, '_')}`);
     console.log('');
   } catch (error) {
