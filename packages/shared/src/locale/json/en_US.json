@@ -3512,6 +3512,8 @@
   "receive_from_exchange": "Receive from exchange",
   "receive_other_exchanges": "Other exchanges",
   "receive_token_list_footer_text": "Can't find token? Try searching",
+  "receive_transfer": "Receive transfer",
+  "receive_transfer_desc": "Show your address or QR code to receive on-chain assets",
   "recent": "Recent",
   "recovery_phrase_free": "Recovery phrase free",
   "recovery_phrase_screenshot_protected_desc": "For your asset security, your recovery phrase will <tag>never appear in screenshots</tag>.",

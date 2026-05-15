@@ -3512,6 +3512,8 @@
   "receive_from_exchange": "从交易所接收",
   "receive_other_exchanges": "其他交易所",
   "receive_token_list_footer_text": "找不到代币？试试搜索",
+  "receive_transfer": "接收转账",
+  "receive_transfer_desc": "出示地址或二维码，接收链上资产",
   "recent": "最近",
   "recovery_phrase_free": "无需助记词",
   "recovery_phrase_screenshot_protected_desc": "为了您的资产安全，助记词<tag>不会出现在截图中</tag>。",
