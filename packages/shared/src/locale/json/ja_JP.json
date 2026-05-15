@@ -343,6 +343,7 @@
   "cloud_backup_failed_apple_desc": "考えられる理由：\n1. ネットワーク接続の問題\n2. 正しいApple IDにサインインしていない\n3. iCloudとキーチェーンの同期が有効になっていない\n4. iCloudストレージが不足している（スペースを確保するには「バックアップを管理」で古いバックアップを削除できます）",
   "cloud_backup_failed_google_desc": "考えられる原因:\n1. ネットワーク接続の問題\n2. 正しい Google アカウントにサインインしていない\n3. Google Drive の同期が有効になっていない\n4. Google Drive のストレージが不足している（「バックアップを管理」で古いバックアップを削除して空き容量を確保できます）",
   "cloud_sync_issue_toast_title": "クラウド同期に問題があります",
+  "coins__action": "Coins (UTXO)",
   "coming_soon": "近日公開",
   "coming_soon_desc": "現在、この機能を開発中で、近日中に利用可能になる予定です。",
   "communication.communicating": "デバイスに接続しています…",

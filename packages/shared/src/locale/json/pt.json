@@ -343,6 +343,7 @@
   "cloud_backup_failed_apple_desc": "Possíveis razões:\n1. Problemas de conexão de rede\n2. Não conectado ao Apple ID correto\n3. Sincronização do iCloud e Keychain não ativada\n4. Armazenamento do iCloud insuficiente (você pode excluir backups antigos em \"Gerenciar Backups\" para liberar espaço)",
   "cloud_backup_failed_google_desc": "Possíveis razões:\n1. Problemas de conexão de rede\n2. Não conectado à conta Google correta\n3. Sincronização do Google Drive não ativada\n4. Armazenamento insuficiente no Google Drive (você pode excluir backups antigos em \"Gerenciar Backups\" para liberar espaço)",
   "cloud_sync_issue_toast_title": "Há um problema com a sincronização na nuvem",
+  "coins__action": "Coins (UTXO)",
   "coming_soon": "Em breve",
   "coming_soon_desc": "Estamos atualmente desenvolvendo este recurso e o disponibilizaremos em breve.",
   "communication.communicating": "Conectando-se ao seu dispositivo…",

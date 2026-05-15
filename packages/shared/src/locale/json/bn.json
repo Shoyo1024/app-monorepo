@@ -343,6 +343,7 @@
   "cloud_backup_failed_apple_desc": "সম্ভাব্য কারণসমূহ:\n1. নেটওয়ার্ক সংযোগের সমস্যা\n2. সঠিক Apple ID-তে সাইন ইন করা নেই\n3. iCloud এবং Keychain সিঙ্ক সক্রিয় নয়\n4. iCloud-এ পর্যাপ্ত স্টোরেজ নেই (জায়গা খালি করতে আপনি “Manage Backups”-এ পুরনো ব্যাকআপ মুছে দিতে পারেন)",
   "cloud_backup_failed_google_desc": "সম্ভাব্য কারণসমূহ:\n১. নেটওয়ার্ক সংযোগজনিত সমস্যা\n২. সঠিক Google অ্যাকাউন্টে সাইন ইন করা নেই\n৩. Google Drive সিঙ্ক সক্রিয় নেই\n৪. Google Drive-এ পর্যাপ্ত স্টোরেজ নেই (আপনি “Manage Backups”-এ পুরনো ব্যাকআপ মুছে জায়গা খালি করতে পারেন)",
   "cloud_sync_issue_toast_title": "ক্লাউড সিঙ্কের সাথে একটি সমস্যা রয়েছে",
+  "coins__action": "Coins (UTXO)",
   "coming_soon": "শীঘ্রই আসছে",
   "coming_soon_desc": "আমরা বর্তমানে এই বৈশিষ্ট্যটি বিকাশ করছি এবং শীঘ্রই এটি উপলব্ধ করাব।",
   "communication.communicating": "আপনার ডিভাইসের সাথে সংযোগ স্থাপন করা হচ্ছে…",

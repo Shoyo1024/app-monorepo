@@ -343,6 +343,7 @@
   "cloud_backup_failed_apple_desc": "संभावित कारण:\n1. नेटवर्क कनेक्शन से संबंधित समस्याएँ\n2. सही Apple ID में साइन इन नहीं किया गया\n3. iCloud और Keychain सिंक सक्षम नहीं है\n4. iCloud स्टोरेज अपर्याप्त (स्पेस खाली करने के लिए आप “Manage Backups” में पुराने बैकअप हटा सकते हैं)",
   "cloud_backup_failed_google_desc": "संभावित कारण:\n1. नेटवर्क कनेक्शन संबंधी समस्याएँ\n2. सही Google खाते में साइन इन नहीं किया है\n3. Google Drive सिंक सक्षम नहीं है\n4. Google Drive में अपर्याप्त स्टोरेज (आप “Manage Backups” में पुराने बैकअप हटाकर जगह खाली कर सकते हैं)",
   "cloud_sync_issue_toast_title": "क्लाउड सिंक में एक समस्या है",
+  "coins__action": "Coins (UTXO)",
   "coming_soon": "जल्द ही आ रहा है",
   "coming_soon_desc": "हम वर्तमान में इस सुविधा का विकास कर रहे हैं और जल्द ही इसे उपलब्ध कराएंगे।",
   "communication.communicating": "आपके डिवाइस से कनेक्शन स्थापित किया जा रहा है…",

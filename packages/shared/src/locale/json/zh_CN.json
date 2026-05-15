@@ -343,6 +343,7 @@
   "cloud_backup_failed_apple_desc": "可能的原因:\n1. 网络连接问题\n2. 未登录正确的 Apple ID\n3. 未开启 iCloud 与「钥匙串」同步\n4. iCloud 空间不足（可在「管理备份」中删除旧备份释放空间）",
   "cloud_backup_failed_google_desc": "可能的原因：\n1. 网络连接问题\n2. 未登录正确的 Google 账户\n3. Google Drive 同步未启用\n4. Google Drive 存储空间不足（您可以在「管理备份」中删除旧备份以释放空间）",
   "cloud_sync_issue_toast_title": "云端同步出现问题",
+  "coins__action": "硬币（未花费输出）",
   "coming_soon": "即将推出",
   "coming_soon_desc": "功能开发中，将于近期推出",
   "communication.communicating": "正在连接您的设备…",

@@ -343,6 +343,7 @@
   "cloud_backup_failed_apple_desc": "Raisons possibles :\n1. Problèmes de connexion réseau\n2. Non connecté au bon identifiant Apple\n3. Synchronisation iCloud et Trousseau non activée\n4. Espace de stockage iCloud insuffisant (vous pouvez supprimer les anciennes sauvegardes dans « Gérer les sauvegardes » pour libérer de l'espace)",
   "cloud_backup_failed_google_desc": "Raisons possibles :\n1. Problèmes de connexion réseau\n2. Non connecté au compte Google correct\n3. Synchronisation Google Drive non activée\n4. Espace de stockage Google Drive insuffisant (vous pouvez supprimer les anciennes sauvegardes dans « Gérer les sauvegardes » pour libérer de l'espace)",
   "cloud_sync_issue_toast_title": "Il y a un problème avec la synchronisation cloud",
+  "coins__action": "Coins (UTXO)",
   "coming_soon": "Bientôt disponible",
   "coming_soon_desc": "Nous développons actuellement cette fonctionnalité et la rendrons disponible prochainement.",
   "communication.communicating": "Connecting to your appareil…",

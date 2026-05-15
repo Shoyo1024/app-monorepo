@@ -343,6 +343,7 @@
   "cloud_backup_failed_apple_desc": "Kemungkinan alasan:\n1. Masalah koneksi jaringan\n2. Tidak masuk dengan Apple ID yang benar\n3. Sinkronisasi iCloud dan Keychain tidak diaktifkan\n4. Penyimpanan iCloud tidak mencukupi (Anda dapat menghapus cadangan lama di \"Kelola Cadangan\" untuk mengosongkan ruang)",
   "cloud_backup_failed_google_desc": "Kemungkinan alasan:\n1. Masalah koneksi jaringan\n2. Tidak masuk ke akun Google yang benar\n3. Sinkronisasi Google Drive tidak diaktifkan\n4. Penyimpanan Google Drive tidak mencukupi (Anda dapat menghapus cadangan lama di “Kelola Cadangan” untuk mengosongkan ruang)",
   "cloud_sync_issue_toast_title": "Ada masalah dengan sinkronisasi cloud",
+  "coins__action": "Coins (UTXO)",
   "coming_soon": "Segera hadir",
   "coming_soon_desc": "Kami sedang mengembangkan fitur ini dan akan segera tersedia.",
   "communication.communicating": "Menghubungkan ke perangkat Anda…",
