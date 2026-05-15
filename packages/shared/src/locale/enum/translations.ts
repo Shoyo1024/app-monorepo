@@ -348,6 +348,7 @@ export enum ETranslations {
   cloud_backup_failed_apple_desc = 'cloud_backup_failed_apple_desc',
   cloud_backup_failed_google_desc = 'cloud_backup_failed_google_desc',
   cloud_sync_issue_toast_title = 'cloud_sync_issue_toast_title',
+  coins__action = 'coins__action',
   coming_soon = 'coming_soon',
   coming_soon_desc = 'coming_soon_desc',
   communication_communicating = 'communication.communicating',
