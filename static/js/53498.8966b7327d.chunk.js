@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkweb=self.webpackChunkweb||[]).push([["53498"],{758593(e,t,a){a.r(t),a.d(t,{default:()=>__rspack_default_export});var r=a(927092);let __rspack_default_export=async(e,t)=>{let a=t?.deeplinkResult;if(a&&a.data.urlPathList?.[0]==="migrate"){let e={address:a.data.urlPathList?.[1]};return{type:r.Wb.MIGRATE,data:e}}return null}}}]);
+//# sourceMappingURL=53498.8966b7327d.chunk.js.map

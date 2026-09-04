@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkweb=self.webpackChunkweb||[]).push([["82004"],{862783(e,a,t){t.r(a),t.d(a,{default:()=>__rspack_default_export});var r=t(514047),l=t(927092);let __rspack_default_export=async(e,a)=>{let t=a?.urlResult;if(t?.data?.urlParamList){let e=t?.data?.origin;if([r.rq,r.$U,r.km].includes(e)&&t?.data?.pathname==="/modal/update/preview")return{type:l.Wb.UPDATE_PREVIEW,data:{}}}return null}}}]);
+//# sourceMappingURL=82004.4febc578a9.chunk.js.map
