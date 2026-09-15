@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkweb=self.webpackChunkweb||[]).push([["19954"],{398569(t,e,r){r.d(e,{ThirdPartyHardwareUiStateAtomWatcher:()=>c});var a=r(514041),h=r(388758);function ThirdPartyHardwareUiStateAtomWatcherCmp({onShouldMount:t}){let[e]=(0,h.V$)(),[r]=(0,h.qg)(),[c]=(0,h.tg)();return(0,a.useEffect)(()=>{(e||r||c)&&t()},[r,c,t,e]),null}let c=(0,a.memo)(ThirdPartyHardwareUiStateAtomWatcherCmp)}}]);
+//# sourceMappingURL=19954.77acfd5673.chunk.js.map
