@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkweb=self.webpackChunkweb||[]).push([["84910"],{864477(a,t,e){e.r(t),e.d(t,{default:()=>__rspack_default_export}),e(636888);var r=e(927092),l=e(542893);let __rspack_default_export=async(a,t)=>{let e=t?.urlResult,u=t?.deeplinkResult;if(u&&u.data.urlPathList?.[0]==="wc"&&(e=await l.A(u.data.urlParamList?.uri,t)),e&&-1!==["wc"].findIndex(a=>a===e?.data.urlSchema)){let a=e.data.urlPathList?.[0].split("@"),t={version:a?.[1],wcUri:e.data.url};return{type:r.Wb.WALLET_CONNECT,data:t}}return null}}}]);
+//# sourceMappingURL=84910.7df1bcbc00.chunk.js.map
