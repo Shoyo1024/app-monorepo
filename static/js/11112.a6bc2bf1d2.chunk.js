@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkweb=self.webpackChunkweb||[]).push([["11112"],{499963(e,t,a){a.d(t,{HardwareUiStateAtomWatcher:()=>u});var r=a(514041),c=a(388758);function HardwareUiStateAtomWatcherCmp({onShouldMount:e}){let[t]=(0,c.Y_)();return(0,r.useEffect)(()=>{t&&e()},[e,t]),null}let u=(0,r.memo)(HardwareUiStateAtomWatcherCmp)}}]);
+//# sourceMappingURL=11112.a6bc2bf1d2.chunk.js.map
